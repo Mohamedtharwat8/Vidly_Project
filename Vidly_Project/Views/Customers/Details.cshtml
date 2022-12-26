@@ -1,0 +1,36 @@
+﻿@model Vidly_Project.Models.Customer
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Customer Detials
+            </th>
+            <th>
+                Discount Rate
+            </th>
+            <th>
+                Durations In Months
+            </th>
+            <th>
+                SignUpFee Rate
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.MembershipType.DiscountRate %</td>
+            <td>@Model.MembershipType.DurationInMonths</td>
+            <td>@Model.MembershipType.SignUpFee</td>
+        </tr>
+
+    </tbody>
+</table>
+
+

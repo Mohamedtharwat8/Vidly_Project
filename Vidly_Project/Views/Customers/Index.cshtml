@@ -1,0 +1,87 @@
+﻿@*@model List<Vidly_Project.Models.Customer>*@
+@model IEnumerable<Vidly_Project.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+}
+
+@if (!Model.Any())
+{
+    <p>We do not have any customers yet.</p>
+}
+else
+{
+
+    <div>@Html.ActionLink("New Customer", "New", new { @class = "btn btn-primary" })</div>
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
+                    <td>@customer.MembershipType.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*<table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Customer
+                    </th>
+                    <th>
+                        Discount Rate
+                    </th>
+                    <th>
+                        Durations In Months
+                    </th>
+                    <th>
+                        SignUpFee Rate
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(customer.Name, "Edit", new { customer.Id })</td>
+                        <td>@customer.MemberShipType.DiscountRate %</td>
+                        <td>@customer.MemberShipType.DurationsInMonths</td>
+                        <td>@customer.MemberShipType.SignUpFee</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>*@
+}
+
+
+
+
+@*<table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Customers</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="col">item.Name</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>*@
